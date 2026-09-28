@@ -102,7 +102,11 @@
     </div>
   </footer>
 
-  <script src="config.js"></script>
-  <script src="app.js"></script>
+  <!-- data-cfasync="false" opts these scripts out of Cloudflare Rocket Loader,
+       which is enabled on the daveys.xyz zone. Without it Rocket Loader rewrites
+       these tags at the edge and defers execution, which is a known cause of
+       AdSense and analytics breakage. -->
+  <script src="config.js" data-cfasync="false"></script>
+  <script src="app.js" data-cfasync="false"></script>
 </body>
 </html>

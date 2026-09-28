@@ -67,3 +67,17 @@ docker run --rm -p 8080:80 measurement-conversions
 
 State lives in the query string, so any conversion is shareable:
 `/?cat=mass&from=kg&to=lb&v=80`
+
+## Cloudflare notes
+
+The site is fronted by the `RocWork` tunnel on the `daveys.xyz` zone, with a
+proxied CNAME to `<tunnel-id>.cfargotunnel.com`. Two consequences:
+
+- The origin leg is plain HTTP and Cloudflare terminates TLS, so the app's domain
+  in Coolify is `http://convert.daveys.xyz`.
+- **Rocket Loader is enabled zone-wide.** It rewrites `<script>` tags at the edge,
+  which is a documented source of AdSense and analytics breakage, so every script
+  here carries `data-cfasync="false"` (including the AdSense loader injected by
+  `app.js`). Keep that attribute on any script you add. If ads misbehave even so,
+  disable Rocket Loader for this hostname with a Configuration Rule in the
+  Cloudflare dashboard.

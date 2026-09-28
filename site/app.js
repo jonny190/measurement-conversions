@@ -365,6 +365,8 @@
     var loader = document.createElement("script");
     loader.async = true;
     loader.crossOrigin = "anonymous";
+    // Keep Cloudflare Rocket Loader (active on this zone) away from AdSense.
+    loader.setAttribute("data-cfasync", "false");
     loader.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + encodeURIComponent(ADS.client);
     document.head.appendChild(loader);
 
