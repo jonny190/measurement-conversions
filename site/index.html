@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Measurement Conversions — instant unit converter</title>
+  <meta name="description" content="Convert length, mass, volume, temperature, area, speed, time, data, pressure, energy, power, angle and frequency. Free, instant, no sign-up.">
+  <meta name="theme-color" content="#111827">
+  <link rel="canonical" href="https://convert.daveys.xyz/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>📏</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#converter">Skip to converter</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Measurement Conversions</h1>
+      <p class="tagline">Thirteen categories of units, converted as you type. Nothing leaves your browser.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- ── AdSense slot: leaderboard ──────────────────────────────────────
+         Set enabled:true in config.js and app.js injects a real <ins> unit
+         here. To hard-code instead, replace this <aside> with:
+
+         <ins class="adsbygoogle" style="display:block"
+              data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+              data-ad-slot="0000000000" data-ad-format="horizontal"
+              data-full-width-responsive="true"></ins>
+         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    ──────────────────────────────────────────────────────────────────── -->
+    <aside class="ad-slot ad-slot--leaderboard" data-ad-slot="leaderboard" aria-label="Advertisement">
+      <span class="ad-slot__tag">Advertisement</span>
+      <span class="ad-slot__placeholder">AdSense leaderboard &mdash; <code>ADSENSE_CONFIG.slots.leaderboard</code></span>
+    </aside>
+
+    <nav class="chips" id="categories" aria-label="Measurement category"></nav>
+
+    <section class="converter" id="converter" aria-labelledby="converter-heading">
+      <h2 id="converter-heading" class="visually-hidden">Converter</h2>
+
+      <div class="converter__row">
+        <div class="field">
+          <label for="value">Amount</label>
+          <input id="value" type="text" inputmode="decimal" value="1" spellcheck="false" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="from">From</label>
+          <select id="from"></select>
+        </div>
+
+        <button type="button" class="swap" id="swap" title="Swap units" aria-label="Swap units">&#8646;</button>
+
+        <div class="field">
+          <label for="to">To</label>
+          <select id="to"></select>
+        </div>
+      </div>
+
+      <output class="result" id="result" aria-live="polite">
+        <span class="result__value" id="result-value">&nbsp;</span>
+        <span class="result__unit" id="result-unit"></span>
+        <span class="result__equation" id="result-equation"></span>
+      </output>
+
+      <div class="actions">
+        <button type="button" class="button" id="copy">Copy result</button>
+        <button type="button" class="button button--ghost" id="clear">Clear</button>
+        <span class="hint" id="hint" role="status"></span>
+      </div>
+    </section>
+
+    <!-- ── AdSense slot: in-content ───────────────────────────────────────
+         Same pattern as the leaderboard above; slot id comes from
+         ADSENSE_CONFIG.slots.inArticle. -->
+    <aside class="ad-slot ad-slot--in-article" data-ad-slot="inArticle" aria-label="Advertisement">
+      <span class="ad-slot__tag">Advertisement</span>
+      <span class="ad-slot__placeholder">AdSense in-content &mdash; <code>ADSENSE_CONFIG.slots.inArticle</code></span>
+    </aside>
+
+    <section class="reference" aria-labelledby="reference-heading">
+      <h2 id="reference-heading">Every other unit</h2>
+      <p class="reference__lead" id="reference-lead"></p>
+      <div class="table-scroll">
+        <table id="reference-table">
+          <thead>
+            <tr><th scope="col">Unit</th><th scope="col">Value</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Every value is computed locally in your browser &mdash; nothing is uploaded or stored.</p>
+      <p class="muted" id="footer-note"></p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
